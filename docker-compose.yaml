@@ -1,0 +1,18 @@
+version: '2'
+services: 
+  api: 
+    build: .
+    container_name: "mongodb_api"
+    restart: always
+    ports: 
+      - "8000:8000"
+
+  mongodb:
+    image: "mongo:latest"
+    container_name: "mongodb"
+    restart: always
+    ports: 
+      - "27017:27017"
+    volumes: 
+      - ./data:/data/db
+
